@@ -9,5 +9,5 @@ test tasks for aura
 
 you can find test report in the **mochawesome-report** folder
 
-
+screenshot
 
