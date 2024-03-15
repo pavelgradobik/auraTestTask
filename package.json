@@ -19,5 +19,10 @@
   "homepage": "https://github.com/pavelgradobik/auraTestTask#readme",
   "devDependencies": {
     "cypress": "^13.7.0"
+  },
+  "dependencies": {
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "dotenv": "^16.4.5",
+    "zod": "^3.22.4"
   }
 }

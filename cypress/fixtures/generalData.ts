@@ -1,4 +1,5 @@
 export const generalData = {
   searchTopic: 'Oppenheimer',
-  selectSearchResult: 'Oppenheimer (film)'
+  selectSearchResult: 'Oppenheimer (film)',
+  urkWikiTitle: 'Українська'
 }

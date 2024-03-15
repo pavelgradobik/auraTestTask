@@ -1,0 +1,196 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-15T15:18:50.487Z",
+    "end": "2024-03-15T15:19:06.783Z",
+    "duration": 16296,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "07f2cd6b-9274-4efe-bdf7-d349958d220b",
+      "title": "",
+      "fullFile": "cypress/e2e/wiki.cy.ts",
+      "file": "cypress/e2e/wiki.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "75c9a82e-3b73-4c97-8aae-9dd867596a0c",
+          "title": "As a User",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "I could open Main Wiki Page and search for interested topic",
+              "fullTitle": "As a User I could open Main Wiki Page and search for interested topic",
+              "timedOut": null,
+              "duration": 2168,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const mainPage = new main_page_1.MainPage();\nconst articlePage = new article_page_1.ArticlePage();\nmainPage\n    .searchFor(generalData_1.generalData.searchTopic)\n    .selectSearchResult(generalData_1.generalData.selectSearchResult);\narticlePage.verifyArticleOpened(true);",
+              "err": {},
+              "uuid": "10b5deed-1468-473f-bf3e-a746c42f348c",
+              "parentUUID": "75c9a82e-3b73-4c97-8aae-9dd867596a0c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I could i could change the Wiki language",
+              "fullTitle": "As a User I could i could change the Wiki language",
+              "timedOut": null,
+              "duration": 1260,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const mainPage = new main_page_1.MainPage();\nmainPage\n    .selectWikiLanguage(generalData_1.generalData.urkWikiTitle)\n    .verifyWikiNewLanguageOpened(generalData_1.generalData.urkWikiTitle);",
+              "err": {},
+              "uuid": "690f3776-5824-40bd-b2b5-16bd79610b60",
+              "parentUUID": "75c9a82e-3b73-4c97-8aae-9dd867596a0c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I could open another wiki project Wikiversity",
+              "fullTitle": "As a User I could open another wiki project Wikiversity",
+              "timedOut": null,
+              "duration": 1767,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const wikiversityUrl = 'https://en.wikiversity.org';\nconst mainPage = new main_page_1.MainPage();\nmainPage.selectWikiProject('Wikiversity');\ncy.origin(wikiversityUrl, () => {\n    const wikiversityDependencies = Cypress.require('../../pages/wikiversity.page');\n    const wikiversityPage = new wikiversityDependencies.Wikiversity();\n    wikiversityPage.verifyOpened(true);\n});",
+              "err": {},
+              "uuid": "ccf824e8-30d9-44e3-b35c-2673ae3be13c",
+              "parentUUID": "75c9a82e-3b73-4c97-8aae-9dd867596a0c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "10b5deed-1468-473f-bf3e-a746c42f348c",
+            "690f3776-5824-40bd-b2b5-16bd79610b60",
+            "ccf824e8-30d9-44e3-b35c-2673ae3be13c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5195,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "d2895095-73e8-4231-ae2b-89cee6db9fa7",
+          "title": "As A user I could open the",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "article by using a direct link",
+              "fullTitle": "As A user I could open the article by using a direct link",
+              "timedOut": null,
+              "duration": 567,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const articlePage = new article_page_1.ArticlePage();\narticlePage.openByURL('Oppenheimer_(film)').verifyArticleOpened(true);",
+              "err": {},
+              "uuid": "cd6d8f61-e567-4cff-8737-719076de3f7a",
+              "parentUUID": "d2895095-73e8-4231-ae2b-89cee6db9fa7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "main page and Login to Edit selected article",
+              "fullTitle": "As A user I could open the main page and Login to Edit selected article",
+              "timedOut": null,
+              "duration": 10357,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const mainPage = new main_page_1.MainPage();\nconst editPage = new edit_page_1.EditPage();\nconst userName = Cypress.env('userName');\nconst userPassword = Cypress.env('userPassword');\n(0, loginAs_1.loginAs)(userName, userPassword);\nmainPage.verifyOpened(true).selectContributionOption();\neditPage.verifySuggestedEditsModuleOpened(true);",
+              "err": {},
+              "uuid": "6e8cc25b-88c9-4a31-a730-241d4021ed4e",
+              "parentUUID": "d2895095-73e8-4231-ae2b-89cee6db9fa7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cd6d8f61-e567-4cff-8737-719076de3f7a",
+            "6e8cc25b-88c9-4a31-a730-241d4021ed4e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10924,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

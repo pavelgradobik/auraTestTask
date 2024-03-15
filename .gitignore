@@ -137,3 +137,4 @@ dist
 # from runner
 packages/runner/cypress/videos
 packages/runner/cypress/screenshots
+cypress.env.json

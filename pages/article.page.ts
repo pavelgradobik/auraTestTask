@@ -1,26 +1,30 @@
 import { ArticleSelectors } from '../selectors/article.selectors';
 import { generalData } from '../cypress/fixtures/generalData';
+import { Links } from '../cypress/utils/links';
 
 export class ArticlePage {
 	private article = new ArticleSelectors();
 
 	openByURL(url: string) {
-		cy.visit(url);
+		cy.visit(`${Links.article}${url}`);
 		return this;
 	}
 
-	verifyArticleOpened(state: boolean) {
+	verifyArticleOpened(
+		state: boolean,
+		articleTitle = generalData.selectSearchResult,
+		topicTitle = generalData.searchTopic
+	) {
 		if (state) {
-			cy.contains(
-				this.article.articleTitle,
-				generalData.selectSearchResult
-			).should('be.visible');
+			cy.contains(this.article.articleTitle, articleTitle).should(
+				'be.visible'
+			);
 			cy.get(this.article.articleContentMenu)
 				.should('contain', 'Box office')
 				.should('be.visible');
 			cy.get(this.article.infobox)
 				.find(this.article.infoboxTitle)
-				.should('have.text', generalData.searchTopic)
+				.should('have.text', topicTitle)
 				.should('be.visible');
 			cy.get(this.article.infobox)
 				.find(this.article.infoboxImage)
@@ -31,10 +35,9 @@ export class ArticlePage {
 				);
 			cy.url().should('include', generalData.searchTopic);
 		} else {
-			cy.contains(
-				this.article.articleTitle,
-				generalData.selectSearchResult
-			).should('not.exist');
+			cy.contains(this.article.articleTitle, articleTitle).should(
+				'not.exist'
+			);
 			cy.get(this.article.articleContentMenu)
 				.find('Box office')
 				.should('not.exist');

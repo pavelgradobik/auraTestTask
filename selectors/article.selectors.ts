@@ -4,5 +4,5 @@ export class ArticleSelectors {
     readonly infobox = '.infobox.vevent'
     readonly infoboxTitle = '.summary';
     readonly infoboxImage = '.infobox-image a';
-
+    readonly goHomePageButton = '.oo-ui-labelElement-label:contains("Go to your homepage")';
 }

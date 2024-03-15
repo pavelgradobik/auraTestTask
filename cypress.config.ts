@@ -10,6 +10,8 @@ export default defineConfig({
     pageLoadTimeout: 10000,
     viewportWidth: 1920,
     viewportHeight: 1080,
+    reporter: 'mochawesome',
+    experimentalOriginDependencies: true,
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
